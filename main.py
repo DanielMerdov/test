@@ -4,7 +4,21 @@ import matplotlib.pyplot as plt
 from functions import gradientDescent
 import json
 from sklearn.model_selection import train_test_split
-from visualization i
+from visualization import rysuj_funkcje_kosztu, oblicz_i_wypisz_wyniki
+
+data = pd.read_csv("C:\\Moje\\Projects\\PyCharm projects\\PythonProject\\data\\train.csv")
+with open("plik.json", "r", encoding="utf-8") as plik:
+    dane = json.load(plik)
+
+data["sex"]=data["sex"].map({"male":1,"female":0})
+data["smoker"] = data["smoker"].map({"yes":1,"no":0})
+
+X = data[["age","sex","bmi","children","smoker"]]
+Y = data[["charges"]]
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.2, random_state = 42)
+
+mean_values = X_train.mean()
 std_values = X_train.std()
 
 X_train_norm = (X_train-mean_values)/std_values
