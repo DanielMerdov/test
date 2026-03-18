@@ -24,3 +24,6 @@ def gradientDescent(X, Y, theta, alpha, num_iters):
         J_history.append(J)
 
     return theta, J_history
+
+def predykcja(X_test, theta):
+    return np.dot(X_test, theta)

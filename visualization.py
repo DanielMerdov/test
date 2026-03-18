@@ -3,11 +3,12 @@ import numpy as np
 
 def rysuj_funkcje_kosztu(historia_kosztu):
     plt.figure(figsize=(10, 6))
-    plt.plot(range(len(historia_kosztu)), historia_kosztu, color='blue')
+    plt.plot(range(len(historia_kosztu)), historia_kosztu, color='red')
     plt.xlabel("Iteracja")
     plt.ylabel("Wartość funkcji kosztu")
     plt.title("Funkcja kosztu w kolejnych iteracjach gradientu")
     plt.grid(True)
+    plt.savefig("wykres_kosztu.png")
     plt.show()
 
 def oblicz_i_wypisz_wyniki(Y_test, Y_pred, theta):

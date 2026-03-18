@@ -1,7 +1,9 @@
+#Coś robi ten kod ale co nikt nie wie
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from functions import gradientDescent
+from functions import gradientDescent, predykcja
 import json
 from sklearn.model_selection import train_test_split
 from visualization import rysuj_funkcje_kosztu, oblicz_i_wypisz_wyniki
@@ -39,7 +41,7 @@ alpha = dane["alpha"]
 num_iters = dane["num_iters"]
 
 theta, cost = gradientDescent(X_train, Y_train, theta, alpha, num_iters)
-Y_pred = np.dot(X_test, theta)
+Y_pred = predykcja(X_test, theta)
 
 plt.scatter(Y_test, Y_pred)
 max_val = max(Y_test.max(), Y_pred.max())
