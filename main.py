@@ -51,3 +51,5 @@ r2 = 1 - ss_res/ss_tot
 print(r2)
 print(theta)
 
+from visualization import rysuj_funkcje_kosztu
+rysuj_funkcje_kosztu(cost)
