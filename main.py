@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from functions import gradientDescent
 import json
 from sklearn.model_selection import train_test_split
+from visualization import rysuj_funkcje_kosztu, oblicz_i_wypisz_wyniki
 
 data = pd.read_csv("C:\\Moje\\Projects\\PyCharm projects\\PythonProject\\data\\train.csv")
 with open("plik.json", "r", encoding="utf-8") as plik:
@@ -45,11 +46,8 @@ max_val = max(Y_test.max(), Y_pred.max())
 plt.plot([0, max_val], [0, max_val], color="black")
 plt.show()
 
-ss_res = np.sum((Y_test - Y_pred)**2)
-ss_tot = np.sum((Y_test - np.mean(Y_test))**2)
-r2 = 1 - ss_res/ss_tot
-print(r2)
-print(theta)
 
-from visualization import rysuj_funkcje_kosztu
+
 rysuj_funkcje_kosztu(cost)
+
+oblicz_i_wypisz_wyniki(Y_test, Y_pred, theta)
